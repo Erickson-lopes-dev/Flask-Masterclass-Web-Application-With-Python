@@ -1,7 +1,15 @@
-from flask import Flask, request, jsonify, Response, redirect
+from flask import Flask, request, jsonify, Response, redirect, render_template
+from flask_bootstrap import Bootstrap
 
 # indicando a aplicação
 app = Flask(__name__)
+Bootstrap(app)
+
+
+# templates
+@app.route('/template')
+def template():
+    return render_template('index.html')
 
 
 # o Flask lida com response automaticamente
