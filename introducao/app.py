@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request, jsonify, Response, redirect
 
 # indicando a aplicação
 app = Flask(__name__)
@@ -19,6 +19,13 @@ def index():
     return "<a href='/posts'>Posts</a>"
 
 
+# redirect
+@app.route("/redirect")
+def redirect_url():
+    return redirect("/response")
+
+
+# Recebendo dados da url e request
 @app.route("/posts")
 @app.route("/posts/<int:id>")
 def posts(id):
