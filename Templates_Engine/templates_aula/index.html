@@ -5,10 +5,5 @@
 
 {% include 'componet/notification.html' %}
 
-<ul class="list-group list-group-flush">
-    <li class="list-group-item">{{ user.name }}</li>
-    <li class="list-group-item">{{ user["anos"] }}</li>
-    <li class="list-group-item">{{ user.email }}</li>
-</ul>
-
+<a href="{{ url_for('users') }}">Users</a>
 {% endblock %}

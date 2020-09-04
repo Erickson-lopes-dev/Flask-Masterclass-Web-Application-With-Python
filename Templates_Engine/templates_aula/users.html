@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+{% block content %}
 {% include 'componet/notification.html' %}
 
+{% for user in users_list %}
+    <ul class="list-group list-group-flush mb-5">
+        <li class="list-group-item {{ 'bg-success' if user['active'] else 'bg-danger' }}">{{ user.name }}</li>
+        <li class="list-group-item">{{ user.email }}</li>
+        <li class="list-group-item">{{ user.anos }}</li>
+        <li class="list-group-item">{{ user.active }}</li>
+    </ul>
+{% endfor %}
 {% endblock %}
