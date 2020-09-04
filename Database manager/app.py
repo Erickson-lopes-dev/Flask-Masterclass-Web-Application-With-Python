@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin
 
 app = Flask(__name__)
 
@@ -10,9 +11,16 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # parâmetros obrigadorio para o sqlalchemy rodas na aplicação
 db = SQLAlchemy(app)
 
+login_manager = LoginManager(app)
+
+
+@login_manager.user_loader
+def current_user(user_id):
+    return User.query.get(user_id)
+
 
 # modelo de dados dos registros
-class User(db.Model):
+class User(db.Model, UserMixin):
     # nome da tabela
     __tablename__ = "users"
     # colunas
