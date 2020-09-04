@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .notification {
+            text-align: center;
+            background-color: antiquewhite;
+            width: 100%;
+            height: 20px;
+        }
+    </style>
 </head>
 <body>
-{% for user in users %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+                {% for message in messages %}
+                    <div class="notification">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     {{ user.name }}
     <br>
     {{ user["anos"] }}
     <br>
     {{ user.email }}
-{% endfor %}
+
 </body>
 </html>
