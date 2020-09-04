@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-olá
+{% for user in users %}
+    {{ user.name }}
+    <br>
+    {{ user["anos"] }}
+    <br>
+    {{ user.email }}
+{% endfor %}
 </body>
 </html>
