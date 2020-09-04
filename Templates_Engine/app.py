@@ -6,11 +6,11 @@ app.config['SECRET_KEY'] = 'sserve'
 
 @app.route('/templates')
 def templates():
-
-
     flash("Usuário criado com sucesso!")
+
+    usuarios = False
     # flash("passei por aqui!")
-    return render_template('index.html')
+    return render_template('index.html', user=usuarios)
 
 
 @app.route('/users')

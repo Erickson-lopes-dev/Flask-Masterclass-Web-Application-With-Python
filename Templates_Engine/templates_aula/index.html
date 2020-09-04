@@ -5,5 +5,10 @@
 
 {% include 'componet/notification.html' %}
 
-<a href="{{ url_for('users') }}">Users</a>
+{% if user %}
+    <a href="{{ url_for('users') }}" class="lead">Users</a>
+{% else %}
+    <p class="text-center">Nenhuma página encontrada</p>
+{% endif %}
+
 {% endblock %}
