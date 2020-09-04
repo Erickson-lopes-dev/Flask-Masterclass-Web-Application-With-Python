@@ -3,6 +3,7 @@
         <li>{{ user.id }}</li>
         <li>{{ user.name }}</li>
         <li>{{ user.email }}</li>
+        <li>{{ user.password }}</li>
         <li>
             <a href="{{ url_for('delete', id=user.id) }}">Delete</a>
         </li>
