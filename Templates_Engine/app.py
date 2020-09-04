@@ -3,6 +3,7 @@ from flask import Flask, render_template, flash
 app = Flask(__name__, template_folder='templates_aula')
 app.config['SECRET_KEY'] = 'sserve'
 
+
 @app.route('/templates')
 def templates():
     users = {
@@ -14,6 +15,12 @@ def templates():
     flash("Usuário criado com sucesso!")
     # flash("passei por aqui!")
     return render_template('index.html', user=users)
+
+
+@app.route('/users')
+def users():
+    flash("Users Routes")
+    return render_template('users.html')
 
 
 if __name__ == '__main__':
