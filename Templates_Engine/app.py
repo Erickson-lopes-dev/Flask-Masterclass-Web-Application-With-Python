@@ -1,6 +1,6 @@
 from flask import Flask, render_template, flash
 
-app = Flask(__name__, template_folder='templates_aula')
+app = Flask(__name__, template_folder='templates_aula', static_folder='static')
 app.config['SECRET_KEY'] = 'sserve'
 
 
