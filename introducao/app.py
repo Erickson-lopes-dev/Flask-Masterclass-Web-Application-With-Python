@@ -6,7 +6,7 @@ app = Flask(__name__)
 Bootstrap(app)
 
 
-# templates
+# templates_aula
 @app.route('/template')
 def template():
     return render_template('index.html')
