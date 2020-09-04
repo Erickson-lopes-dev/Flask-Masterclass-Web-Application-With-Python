@@ -1,0 +1,9 @@
+<body>
+  {% for user in users %}
+  <ul>
+    <li>
+      <a href="{{ url_for('index_user', id=user.id) }}">{{ user.name }}</a>
+    </li>
+  </ul>
+  {% endfor %}
+</body>
