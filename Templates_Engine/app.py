@@ -37,7 +37,7 @@ def users():
         },
 
     ]
-    flash("Users Routes")
+    flash(message="Users Routes", category='success')
     return render_template('users.html', users_list=users_list)
 
 

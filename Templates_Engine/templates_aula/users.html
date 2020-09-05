@@ -5,16 +5,7 @@
 
 {{ users_list | length }}
 
-{% for user in users_list %}
-    {% set name = user.name %}
-    {% set email = user.email | truncate(7) %}
+{% from 'componet/user.html' import user_component %}
 
-    <ul class="list-group list-group-flush mb-5">
-        <li class="list-group-item {{ 'bg-success' if user['active'] else 'bg-danger' }}">{{ name | title }}</li>
-        <li class="list-group-item">{{ email }}</li>
-        <li class="list-group-item">{{ user.anos }}</li>
-        <li class="list-group-item">{{ user.active }}</li>
-        <li class="list-group-item">{{ user.since  }}</li>
-    </ul>
-{% endfor %}
+{{ user_component(users_list) }}
 {% endblock %}
