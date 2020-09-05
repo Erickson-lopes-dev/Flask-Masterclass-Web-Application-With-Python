@@ -1,14 +1,20 @@
+from datetime import datetime
+
+from Templates_Engine.filtros import format_date
+
+
 from flask import Flask, render_template, flash
 
 app = Flask(__name__, template_folder='templates_aula', static_folder='static')
 app.config['SECRET_KEY'] = 'sserve'
+app.jinja_env.filters["formatdate"] = format_date
 
 
 @app.route('/templates')
 def templates():
     flash("Usuário criado com sucesso!")
 
-    usuarios = False
+    usuarios = True
     # flash("passei por aqui!")
     return render_template('index.html', user=usuarios)
 
@@ -19,13 +25,15 @@ def users():
         'name': 'Marcus',
         'anos': 99,
         'email': 'oi@gmauil.com',
-        'active': True
+        'active': True,
+        'since': datetime.utcnow()
     },
         {
             'name': 'CAPS',
             'anos': 99,
             'email': 'oi@gmauil.com',
-            'active': False
+            'active': False,
+            'since': datetime.utcnow()
         },
 
     ]
