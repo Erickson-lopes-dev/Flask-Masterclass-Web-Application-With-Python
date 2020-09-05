@@ -15,6 +15,9 @@
         </li>
       {% else %}
         <li class="nav-item">
+          <a href="{{ url_for('book_add') }}">Add Livros</a>
+        </li>
+        <li class="nav-item">
           <a href="{{ url_for('logout') }}">Sair</a>
         </li>
       {% endif %}

@@ -7,6 +7,10 @@
     <i class="fa fa-arrow-left" aria-hidden="true"></i>
     Voltar
   </a>
+  <a href="{{ url_for('user_add_book', id=user.id) }}" class="btn btn-success">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    Adicionar Livro
+  </a>
   
   <table class="table table-striped mt-3">
     <tbody>
@@ -31,6 +35,16 @@
       </tr>
     </tbody>
   </table>
+
+  <h2 class="text-muted">Books:</h2>
+
+  <ul class="list-group list-group-flush mt-5">
+    {% for book in user.books %}
+      <li class="list-group-item">
+        {{ book.name }}
+      </li>
+    {% endfor %}
+  </ul>
 </div>
 
 

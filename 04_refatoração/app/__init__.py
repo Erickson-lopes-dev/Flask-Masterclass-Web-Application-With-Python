@@ -7,7 +7,6 @@ db = SQLAlchemy()
 login_manager = LoginManager()
 bootstrap = Bootstrap()
 
-
 def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = 'secret'
@@ -17,6 +16,7 @@ def create_app():
     db.init_app(app)
     login_manager.init_app(app)
     bootstrap.init_app(app)
+
     from app import routes
     routes.init_app(app)
 
