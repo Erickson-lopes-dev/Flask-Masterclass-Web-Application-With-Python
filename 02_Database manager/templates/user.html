@@ -1,11 +1,13 @@
-<body>
-    <ul>
-        <li>{{ user.id }}</li>
-        <li>{{ user.name }}</li>
-        <li>{{ user.email }}</li>
-        <li>{{ user.password }}</li>
-        <li>
+{% extends 'base.html' %}
+{% block content %}
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ user.id }}</li>
+        <li class="list-group-item">{{ user.name }}</li>
+        <li class="list-group-item">{{ user.email }}</li>
+        <li class="list-group-item">{{ user.password }}</li>
+        <li class="list-group-item">
             <a href="{{ url_for('delete', id=user.id) }}">Delete</a>
         </li>
     </ul>
-</body>
+{% endblock %}
+
