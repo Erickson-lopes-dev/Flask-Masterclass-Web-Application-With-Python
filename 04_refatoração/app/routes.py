@@ -6,12 +6,12 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from app import db
 from app.models import User
-
+from app.forms import LoginForm
 
 def init_app(app):
     @app.route("/")
     def index():
-        users = User.query.all() # Select * from users; 
+        users = User.query.all()  # Select * from users;
         return render_template("users.html", users=users)
 
     @app.route("/user/<int:id>")
@@ -45,7 +45,9 @@ def init_app(app):
 
     @app.route("/login", methods=["GET", "POST"])
     def login():
-        if request.method == "POST":
+        form = LoginForm()
+
+        if form.validate_on_submit():
             email = request.form["email"]
             password = request.form["password"]
             remember = request.form["remember"]
@@ -63,8 +65,7 @@ def init_app(app):
             login_user(user, remember=remember, duration=timedelta(days=7))
             return redirect(url_for("index"))
 
-        return render_template("login.html")
-
+        return render_template("login.html", form=form)
 
     @app.route("/logout")
     @login_required
